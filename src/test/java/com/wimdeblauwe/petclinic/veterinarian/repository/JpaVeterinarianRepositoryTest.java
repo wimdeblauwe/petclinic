@@ -1,11 +1,8 @@
 package com.wimdeblauwe.petclinic.veterinarian.repository;
 
 import com.wimdeblauwe.petclinic.infrastructure.test.PetclinicDataJpaTest;
-import com.wimdeblauwe.petclinic.infrastructure.vo.Address;
 import com.wimdeblauwe.petclinic.infrastructure.vo.PersonName;
-import com.wimdeblauwe.petclinic.infrastructure.vo.Telephone;
 import com.wimdeblauwe.petclinic.veterinarian.*;
-import com.wimdeblauwe.petclinic.veterinarian.repository.JpaVeterinarianRepository;
 import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +29,8 @@ class JpaVeterinarianRepositoryTest {
   void testSaveVeterinarian() {
     VeterinarianId id = repository.nextId();
     repository.save(new Veterinarian(id,
-                              new PersonName("Patricia", "O'Connor"),
-                              Collections.emptyList()));
+                                     new PersonName("Patricia", "O'Connor"),
+                                     Collections.emptyList()));
     entityManager.flush();
     entityManager.clear();
 

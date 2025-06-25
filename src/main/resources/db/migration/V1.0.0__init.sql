@@ -32,3 +32,12 @@ CREATE TABLE speciality
     since           DATE,
     veterinarian_id UUID references veterinarian (id)
 );
+
+CREATE TABLE visit
+(
+    id               UUID PRIMARY KEY,
+    veterinarian_id  UUID references veterinarian (id),
+    owner_id         UUID references owner (id),
+    pet_id           UUID references pet (id),
+    appointment_time TIMESTAMPTZ
+)
