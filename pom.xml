@@ -30,6 +30,10 @@
 		<java.version>21</java.version>
 		<!-- Dependencies -->
 		<jpearl.version>2.0.1</jpearl.version>
+		<error-handling-spring-boot-starter.version>4.6.0</error-handling-spring-boot-starter.version>
+
+		<!-- Test dependencies -->
+		<archunit-junit5.version>1.4.1</archunit-junit5.version>
 
 		<!-- Maven plugins -->
 		<asciidoctor-maven-plugin.version>2.2.1</asciidoctor-maven-plugin.version>
@@ -67,7 +71,7 @@
 		<dependency>
 			<groupId>io.github.wimdeblauwe</groupId>
 			<artifactId>error-handling-spring-boot-starter</artifactId>
-			<version>4.6.0</version>
+			<version>${error-handling-spring-boot-starter.version}</version>
 		</dependency>
 
 		<dependency>
@@ -106,6 +110,12 @@
 		<dependency>
 			<groupId>org.testcontainers</groupId>
 			<artifactId>postgresql</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.tngtech.archunit</groupId>
+			<artifactId>archunit-junit5</artifactId>
+			<version>${archunit-junit5.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

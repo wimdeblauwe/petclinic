@@ -5,7 +5,7 @@ import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
 @Converter(autoApply = true)
-public class TelephoneAttributeConverter implements AttributeConverter<Telephone, String> {
+class TelephoneAttributeConverter implements AttributeConverter<Telephone, String> {
   @Override
   public String convertToDatabaseColumn(Telephone attribute) {
     return attribute.value();

@@ -7,7 +7,7 @@ import jakarta.persistence.Converter;
 import java.util.UUID;
 
 @Converter(autoApply = true)
-public class VeterinarianIdAttributeConverter implements AttributeConverter<VeterinarianId, UUID> {
+class VeterinarianIdAttributeConverter implements AttributeConverter<VeterinarianId, UUID> {
   @Override
   public UUID convertToDatabaseColumn(VeterinarianId attribute) {
     return attribute.getId();
