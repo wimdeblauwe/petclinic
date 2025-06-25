@@ -12,7 +12,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-class JpaVeterinarianRepository implements VeterinarianRepository{
+class JpaVeterinarianRepository implements VeterinarianRepository {
   private final SpringDataJpaVeterinarianRepository repository;
 
 
@@ -43,11 +43,18 @@ class JpaVeterinarianRepository implements VeterinarianRepository{
   @Override
   public Veterinarian getById(VeterinarianId id) {
     return repository.findById(id)
-        .orElseThrow(()-> new VeterinarianNotFoundException(id));
+        .orElseThrow(() -> new VeterinarianNotFoundException(id));
   }
 
   @Override
   public Page<Veterinarian> findAll(Pageable pageable) {
     return null;
+  }
+
+  @Override
+  public void validateExistsById(VeterinarianId veterinarianId) {
+    if (!repository.existsById(veterinarianId)) {
+      throw new VeterinarianNotFoundException(veterinarianId);
+    }
   }
 }

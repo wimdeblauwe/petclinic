@@ -49,4 +49,11 @@ class JpaOwnerRepository implements OwnerRepository {
   public Page<Owner> findAll(Pageable pageable) {
     return repository.findAll(pageable);
   }
+
+  @Override
+  public void validateExistsById(OwnerId ownerId) {
+    if (!repository.existsById(ownerId)) {
+      throw new OwnerNotFoundException(ownerId);
+    }
+  }
 }

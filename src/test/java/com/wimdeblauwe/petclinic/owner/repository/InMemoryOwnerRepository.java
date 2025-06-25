@@ -48,4 +48,11 @@ public class InMemoryOwnerRepository implements OwnerRepository {
         .toList();
     return new PageImpl<>(content, pageable, values.size());
   }
+
+  @Override
+  public void validateExistsById(OwnerId ownerId) {
+    if (!values.containsKey(ownerId)) {
+      throw new OwnerNotFoundException(ownerId);
+    }
+  }
 }

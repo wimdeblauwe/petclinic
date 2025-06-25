@@ -49,4 +49,11 @@ public class InMemoryVeterinarianRepository implements VeterinarianRepository {
     return new PageImpl<>(content, pageable, values.size());
 
   }
+
+  @Override
+  public void validateExistsById(VeterinarianId veterinarianId) {
+    if (!values.containsKey(veterinarianId)) {
+      throw new VeterinarianNotFoundException(veterinarianId);
+    }
+  }
 }

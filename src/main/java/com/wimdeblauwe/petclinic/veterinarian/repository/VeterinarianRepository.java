@@ -20,4 +20,6 @@ public interface VeterinarianRepository {
   Veterinarian getById(VeterinarianId id);
 
   Page<Veterinarian> findAll(Pageable pageable);
+
+  void validateExistsById(VeterinarianId veterinarianId);
 }

@@ -20,4 +20,6 @@ public interface OwnerRepository {
   Owner getById(OwnerId id);
 
   Page<Owner> findAll(Pageable pageable);
+
+  void validateExistsById(OwnerId ownerId);
 }

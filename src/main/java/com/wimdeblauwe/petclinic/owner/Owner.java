@@ -76,4 +76,8 @@ public class Owner extends AbstractEntity<OwnerId> {
   public List<Pet> getPets() {
     return pets;
   }
+
+  public boolean hasPet(PetId petId) {
+    return pets.stream().anyMatch(pet -> pet.getId().equals(petId));
+  }
 }
