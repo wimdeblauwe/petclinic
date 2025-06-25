@@ -1,4 +1,4 @@
-package com.wimdeblauwe.petclinic;
+package com.wimdeblauwe.petclinic.infrastructure.test;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
