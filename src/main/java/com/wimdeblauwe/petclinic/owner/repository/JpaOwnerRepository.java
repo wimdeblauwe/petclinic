@@ -12,7 +12,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public class JpaOwnerRepository implements OwnerRepository {
+class JpaOwnerRepository implements OwnerRepository {
   private final SpringDataJpaOwnerRepository repository;
 
   public JpaOwnerRepository(SpringDataJpaOwnerRepository repository) {
