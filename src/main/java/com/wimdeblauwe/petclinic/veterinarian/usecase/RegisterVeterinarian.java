@@ -4,7 +4,7 @@ import com.wimdeblauwe.petclinic.infrastructure.stereotype.UseCase;
 import com.wimdeblauwe.petclinic.veterinarian.Speciality;
 import com.wimdeblauwe.petclinic.veterinarian.Veterinarian;
 import com.wimdeblauwe.petclinic.veterinarian.repository.VeterinarianRepository;
-import com.wimdeblauwe.petclinic.veterinarian.usecase.RegisterVeterinarianParameters.CreateSpecialityParameter;
+import com.wimdeblauwe.petclinic.veterinarian.usecase.RegisterVeterinarianParameters.CreateSpecialityParameters;
 
 import java.util.List;
 
@@ -31,7 +31,7 @@ public class RegisterVeterinarian {
     return veterinarian;
   }
 
-  private Speciality createSpeciality(CreateSpecialityParameter specialityParameter) {
+  private Speciality createSpeciality(CreateSpecialityParameters specialityParameter) {
     return new Speciality(repository.nextSpecialityId(),
                           specialityParameter.name(),
                           specialityParameter.since());
