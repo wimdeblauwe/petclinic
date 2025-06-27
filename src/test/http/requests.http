@@ -1,0 +1,45 @@
+### Create owner with pet
+POST {{url}}/api/owners
+Content-Type: application/json
+
+{
+  "owner": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "street": "123 Main Street",
+    "city": "Springfield",
+    "telephone": "123-456-7890"
+  },
+  "pet": {
+    "name": "lassie",
+    "type": "CAT",
+    "birthDate": "2020-06-30",
+    "weightInGrams": 7500
+  }
+}
+
+### Create a veterinarian
+POST {{url}}/api/veterinarians
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "specialities": [
+    {
+      "name": "Surgery",
+      "since": "2020-01-01"
+    }
+  ]
+}
+
+### Plan a visit
+POST {{url}}/api/visits
+Content-Type: application/json
+
+{
+  "veterinarianId": "d958515e-8908-4c1b-a397-edd824e5aa8e",
+  "ownerId": "7daf878c-8843-410a-a5ef-59013bd451d1",
+  "petId": "2531243d-6d51-4710-8112-ab8b2754533b",
+  "appointmentTime": "2025-09-01T14:00:00.000Z"
+}
