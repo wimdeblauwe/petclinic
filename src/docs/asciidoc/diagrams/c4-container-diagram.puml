@@ -1,0 +1,42 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include company-plantuml-style.iuml
+
+'See https://github.com/tupadr3/plantuml-icon-font-sprites for icons
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include DEVICONS/angular.puml
+!include DEVICONS/java.puml
+!include DEVICONS/postgresql.puml
+!include FONTAWESOME/users.puml
+!include FONTAWESOME/user_lock.puml
+!include FONTAWESOME/cube.puml
+!include FONTAWESOME/mail_bulk.puml
+!include FONTAWESOME/file_archive.puml
+!include FONTAWESOME/server.puml
+
+Person(owner, "Owner", "Owns the pet.", $sprite="users")
+Person_Ext(pet, "Pet", "The animal of the owner.", $sprite="users")
+Person(vet, "Veterinarian", "Doctor that examines and treats the pet.", $sprite="users")
+
+System_Boundary(c1, "Petclinic") {
+    Container(spa, "User Interface", "Angular", "The main interface that the user interacts with.", $sprite="angular")
+    Container(api, "Backend", "Java/Spring Boot", "Stores and retrieves the information about pets and appointments.", $sprite="java")
+    ContainerDb(db, "Database", "PostgreSQL", "", $sprite="postgresql")
+}
+
+System_Ext(keycloak, "Keycloak", "Authenticates users", $sprite="user_lock")
+
+Rel(spa, keycloak, "Uses", "https")
+Rel(owner, keycloak, "Uses", "https")
+Rel(vet, keycloak, "Uses", "https")
+Rel(api, keycloak, "Uses", "https")
+Rel(spa, api, "Uses", "http")
+Rel(api, db, "Uses", "jdbc")
+
+Rel(owner, spa, "Uses", "")
+Rel(vet, spa, "Uses", "")
+
+Rel(owner, pet, "Owns", "")
+
+@enduml

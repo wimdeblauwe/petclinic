@@ -1,0 +1,82 @@
+= ADR-003: Code formatting
+:icons: font
+
+icon:calendar[] 2025-06-27
+
+== Context
+
+It is important to have a consistent code style for the project to avoid discussions about personal preferences later on.
+
+Available options:
+
+* IntelliJ default code style
+** The default IntelliJ style is nice, but the drawback is that there are no automatic tools for Maven to check if the code complies with this code style.
+* Palantir Java Format
+** https://github.com/palantir/palantir-java-format
+** Has an https://plugins.jetbrains.com/plugin/13180-palantir-java-format[IntelliJ plugin].
+** Integrates with Maven via the https://github.com/diffplug/spotless/tree/main/plugin-maven#palantir-java-format[spotless plugin].
+** Drawback: Does not preserve manual line breaks.
+So nicely aligned builder method chains or AssertJ assertions are joined together.
+* Google code style
+** https://google.github.io/styleguide/javaguide.html
+** Integrates with Maven via the https://github.com/diffplug/spotless/tree/main/plugin-maven#google-java-format[spotless plugin]:
++
+[source,xml]
+----
+<plugin>
+  <groupId>com.diffplug.spotless</groupId>
+  <artifactId>spotless-maven-plugin</artifactId>
+  <version>2.43.0</version>
+  <configuration>
+    <java>
+      <googleJavaFormat>
+        <version>1.23.0</version>
+        <style>GOOGLE</style>
+        <formatJavadoc>false</formatJavadoc>
+      </googleJavaFormat>
+    </java>
+  </configuration>
+  <executions>
+    <execution>
+      <goals>
+        <goal>check</goal>
+      </goals>
+      <phase>compile</phase>
+    </execution>
+  </executions>
+</plugin>
+----
+** Drawback:
+*** Does not preserve manual line breaks.
+So nicely aligned builder method chains or AssertJ assertions are joined together.
+*** formats annotations on a single line, example:
++
+[source,java]
+----
+@MockBean private CreateCategory createCategory;
+----
+* Spring java format
+** https://github.com/spring-io/spring-javaformat
+** Has Maven plugin that can validate formatting
+** Integrates with IntelliJ via own plugin (Small drawback: needs to be manually downloaded and installed)
+** Seems to be quite close to the default IntelliJ format, except that it uses tabs instead of spaces.
+** Drawback: Manual line breaks are not preserved.
+So nicely aligned builder method chains or AssertJ assertions are joined together.
+
+== Decision
+
+* We will use IntelliJ build-in formatter with the standard IntelliJ code scheme.
+* Each developer enables 'Reformat code' as commit check.
+This should ensure all code is properly formatted when adding to GIT.
+* Optionally, you can also enable the inspection 'Incorrect formatting' (Settings > Editor > Inspections > General) to be alerted if formatting is off while coding.
+
+== Status
+
+icon:check-circle[] ACCEPTED
+
+== Consequences
+
+* There are significant changes due to applying the selected style consistently across the project for the first time.
+Those changes are hidden from `git blame` via https://docs.github.com/en/repositories/working-with-files/using-files/viewing-a-file#ignore-commits-in-the-blame-view[Ignore commits in the blame view].
+* Everybody needs to use IntelliJ.
+There is no automatic check of the style during the build phase.

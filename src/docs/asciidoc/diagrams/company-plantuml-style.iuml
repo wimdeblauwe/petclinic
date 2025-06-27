@@ -1,0 +1,36 @@
+@startuml
+
+!$COLOR_COMPANY_BLUE = "#007ACD"
+'!$COLOR_COMPANY_BG_TERTIARY = "#ebeef1"
+!$COLOR_COMPANY_BG_TERTIARY = "#cbcef1"
+!$COLOR_COMPANY_TEXT_TERTIARY = "#60798b"
+
+UpdateElementStyle("person", $bgColor=$COLOR_COMPANY_BLUE)
+UpdateElementStyle("external_person", $bgColor=$COLOR_COMPANY_BG_TERTIARY,$fontColor=$COLOR_COMPANY_TEXT_TERTIARY)
+UpdateElementStyle("system", $bgColor=$COLOR_COMPANY_BLUE)
+UpdateElementStyle("container", $bgColor=$COLOR_COMPANY_BLUE)
+UpdateElementStyle("external_system", $bgColor=$COLOR_COMPANY_BG_TERTIARY, $fontColor=$COLOR_COMPANY_TEXT_TERTIARY)
+UpdateRelStyle($lineColor=$COLOR_COMPANY_BLUE, $textColor=$COLOR_COMPANY_BLUE)
+
+skinparam class {
+    BackgroundColor white
+    ArrowColor #17417b
+    BorderColor #17417b
+    HeaderBackgroundColor #e4edfa
+}
+
+skinparam object {
+    BackgroundColor white
+    ArrowColor #17417b
+    BorderColor #17417b
+    HeaderBackgroundColor #e4edfa
+}
+
+skinparam CircledCharacter {
+    FontColor white
+}
+
+skinparam stereotypeCBackgroundColor #17417b
+
+hide empty members
+@enduml

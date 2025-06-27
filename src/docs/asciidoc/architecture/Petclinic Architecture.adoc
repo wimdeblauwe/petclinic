@@ -1,0 +1,48 @@
+= Petclinic Architecture
+:toc:
+:toclevels: 2
+:numbered:
+:icons: font
+ifndef::diagramsdir[:diagramsdir: ../diagrams]
+ifndef::imagesdir[:imagesdir: ../diagrams]
+ifndef::adrdir[:adrdir: _adr]
+
+== Introduction
+
+The goal of this application is to keep track of visits to the petclinic.
+It will help owners, pets, and veterinarians.
+
+== Architecture diagrams
+
+[NOTE]
+====
+The diagrams in this chapter follow the https://c4model.com/[C4 model for visualizing software architecture].
+====
+
+=== System Context diagram
+
+plantuml::{diagramsdir}/c4-context-diagram.puml[format=svg]
+
+=== Container diagram
+
+plantuml::{diagramsdir}/c4-container-diagram.puml[format=svg]
+
+== Domain model
+
+The petclinic application is organized around three core aggregate roots:
+
+* _Owner_ - Manages pet ownership and contains Pet entities within its consistency boundary, serving as the entry point for all pet-related operations and information management.
+* _Veterinarian_ - Represents medical practitioners and their specialties, maintaining practitioner credentials, areas of expertise, and professional information as an independent business entity.
+* _Visit_ - Captures the business transactions between pets and veterinarians, encapsulating appointment scheduling, medical procedures, treatment records, and billing as a cohesive unit with its own lifecycle.
+
+[appendix]
+== Architecture Decision Records
+:leveloffset: +2
+
+include::{adrdir}/ADR-001 Java version.adoc[]
+
+include::{adrdir}/ADR-002 Application framework.adoc[]
+
+include::{adrdir}/ADR-003 Code formatting.adoc[]
+
+include::{adrdir}/ADR-004 Externalizable Configuration.adoc[]

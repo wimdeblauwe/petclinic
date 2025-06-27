@@ -1,0 +1,35 @@
+= ADR-004: Externalizable Configuration
+:icons: font
+
+icon:calendar[] 2025-06-27
+
+== Context
+
+The application needs to be configured to run in different context such as local development, automated tests, staging, uat, and production.
+Spring Boot supports this through https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config[externalized configuration].
+
+== Decision
+
+We will use the externalized configuration support of Spring Boot as it allows configuring the settings in many ways (via `application.properties`, via command line, via environment variables).
+
+Some implementation guidelines:
+
+* Group properties into logical units.
+* Name your properties class with `Properties` postfix (E.g. `WebSecurityProperties`)
+* The `prefix` on the `@ConfigurationProperties` annotation should always start with `petclinic`.
+* If the properties are required, use the `@Validated` annotation on the class with bean validation annotations on the fields.
++
+[NOTE]
+====
+If a certain properties class should only be loaded in a certain context (e.g. only for running the application in the Kubernetes cluster), then use `@Profile("prod")` to only load that class then.
+This avoids that the validation would fail, while you don't really want to set the properties.
+====
+
+[TIP]
+====
+To convert a key from YAML format to an environment variable, you can use https://env.simplestep.ca/.
+====
+
+== Status
+
+icon:check-circle[] ACCEPTED

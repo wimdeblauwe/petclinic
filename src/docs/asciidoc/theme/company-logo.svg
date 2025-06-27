@@ -1,0 +1,24 @@
+
+<svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="40" cy="40" r="35" fill="#4A90E2" stroke="#2E5A87" stroke-width="2"/>
+
+  <!-- Paw print -->
+  <g transform="translate(40, 40)">
+    <ellipse cx="0" cy="0" rx="5" ry="6.5" fill="white"/>
+    <ellipse cx="-9" cy="-5" rx="3.5" ry="4" fill="white"/>
+    <ellipse cx="9" cy="-5" rx="3.5" ry="4" fill="white"/>
+    <ellipse cx="-6" cy="-12" rx="2.5" ry="3.5" fill="white"/>
+    <ellipse cx="6" cy="-12" rx="2.5" ry="3.5" fill="white"/>
+  </g>
+
+  <!-- Text -->
+  <text x="85" y="30" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2E5A87">Pet</text>
+  <text x="85" y="55" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#4A90E2">Clinic</text>
+
+  <!-- Medical cross accent -->
+  <g transform="translate(170, 40)">
+    <rect x="-10" y="-2.5" width="20" height="5" fill="#E74C3C" rx="2.5"/>
+    <rect x="-2.5" y="-10" width="5" height="20" fill="#E74C3C" rx="2.5"/>
+  </g>
+</svg>

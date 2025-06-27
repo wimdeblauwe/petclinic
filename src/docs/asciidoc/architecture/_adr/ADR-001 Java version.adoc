@@ -1,0 +1,22 @@
+= ADR-001: Java version
+:icons: font
+
+icon:calendar[] 2025-06-27
+
+== Context
+
+The petclinic backend is an application intended to be run on a cloud server.
+We will be able to freely choose the Java version that is installed.
+
+We can use either Java 21 which is the current LTS version, or Java 24 which is the current latest version.
+
+== Decision
+
+We will use Java 21.
+
+== Status
+
+icon:check-circle[] ACCEPTED
+
+== Consequences
+

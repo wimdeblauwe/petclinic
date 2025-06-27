@@ -1,0 +1,65 @@
+extends: default-with-fallback-font
+font:
+  catalog:
+    Noto Serif:
+      normal: GEM_FONTS_DIR/notoserif-regular-subset.ttf
+      bold: GEM_FONTS_DIR/notoserif-bold-subset.ttf
+      italic: GEM_FONTS_DIR/notoserif-italic-subset.ttf
+      bold_italic: GEM_FONTS_DIR/notoserif-bold_italic-subset.ttf
+      # M+ 1mn supports ASCII and the circled numbers used for conums
+    M+ 1mn:
+      normal: GEM_FONTS_DIR/mplus1mn-regular-subset.ttf
+      bold: GEM_FONTS_DIR/mplus1mn-bold-subset.ttf
+      italic: GEM_FONTS_DIR/mplus1mn-italic-subset.ttf
+      bold_italic: GEM_FONTS_DIR/mplus1mn-bold_italic-subset.ttf
+    # M+ 1p supports Latin, Latin-1 Supplement, Latin Extended, Greek, Cyrillic, Vietnamese, Japanese & an assortment of symbols
+    # It also provides arrows for ->, <-, => and <= replacements in case these glyphs are missing from font
+    M+ 1p Fallback: GEM_FONTS_DIR/mplus1p-regular-fallback.ttf
+    Noto Emoji: GEM_FONTS_DIR/notoemoji-subset.ttf
+    Lato:
+      normal: Lato-Regular.ttf
+      italic: Lato-Italic.ttf
+      bold: Lato-Bold.ttf
+      bold_italic: Lato-BoldItalic.ttf
+
+base:
+  font_family: Lato
+heading:
+  font_family: Lato
+codespan:
+  font_color: '#007ACD'
+page:
+  margin: [ 0.7in, 0.67in, 0.67in, 0.67in ]
+header:
+  height: $base_line_height_length * 3.5
+  border_color: dddddd
+  border_width: 0.25
+  content-margin: [ 5, 0, 0, 0 ]
+  recto:
+    left:
+      content: image:company-logo.svg[width=100]
+    center:
+      content: '{document-title}'
+  verso:
+    left:
+      content: $header_recto_left_content
+    center:
+      content: $header_recto_center_content
+footer:
+  recto:
+    right:
+      content: '{chapter-title} | {page-number}'
+  verso:
+    left:
+      content: '{page-number} | {chapter-title}'
+admonition:
+  icon:
+    note:
+      stroke_color: '#007ACD'
+link:
+  font_color: '#007ACD'
+title_page:
+  title_font_color: '#007ACD'
+  subtitle_font_style: italic
+table:
+  cell_padding: [ 4,4,2,4 ]

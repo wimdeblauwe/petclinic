@@ -1,0 +1,27 @@
+= ADR-002: Application framework
+:icons: font
+
+icon:calendar[] 2025-06-27
+
+== Context
+
+To have rapid development and a solid base to build upon, we will use an application framework.
+
+We need:
+
+* Ability to create a REST API
+* Ability to interface with a database
+* Ability to secure the application
+
+Given the extensive expertise with the Spring framework and the support of the framework of all we need out-of-the-box, the choice is clear.
+
+== Decision
+
+We will use the https://spring.io/[Spring] framework.
+
+== Status
+
+icon:check-circle[] ACCEPTED
+
+== Consequences
+

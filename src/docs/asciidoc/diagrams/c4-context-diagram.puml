@@ -1,0 +1,31 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include company-plantuml-style.iuml
+
+'See https://github.com/tupadr3/plantuml-icon-font-sprites for icons
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include DEVICONS/angular.puml
+!include DEVICONS/java.puml
+!include DEVICONS/postgresql.puml
+!include FONTAWESOME/users.puml
+!include FONTAWESOME/user_lock.puml
+!include FONTAWESOME/cube.puml
+!include FONTAWESOME/mail_bulk.puml
+!include FONTAWESOME/file_archive.puml
+!include FONTAWESOME/server.puml
+
+Person(owner, "Owner", "Owns the pet.", $sprite="users")
+Person_Ext(pet, "Pet", "The animal of the owner.", $sprite="users")
+Person(vet, "Veterinarian", "Doctor that examines and treats the pet.", $sprite="users")
+System(petclinic, "Petclinic", "Application to track information and visits in the petclinic.")
+
+System_Ext(keycloak, "Keycloak", "Authenticates users", $sprite="user_lock")
+
+Rel(owner, petclinic, "Uses", "")
+Rel(vet, petclinic, "Uses", "")
+Rel(petclinic, keycloak, "Uses", "")
+
+Rel(owner, pet, "Owns", "")
+
+@enduml
