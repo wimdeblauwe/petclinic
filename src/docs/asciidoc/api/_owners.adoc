@@ -1,0 +1,19 @@
+== Owners
+
+=== Register an owner
+
+To register a new owner with its pet, issue the following request:
+
+include::{snippets}/register-owner-with-pet/http-request.adoc[]
+
+Example response:
+
+include::{snippets}/register-owner-with-pet/http-response.adoc[]
+
+Request field descriptions:
+
+include::{snippets}/register-owner-with-pet/request-fields.adoc[]
+
+Response field descriptions:
+
+include::{snippets}/register-owner-with-pet/response-fields.adoc[]

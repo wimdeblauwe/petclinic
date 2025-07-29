@@ -1,0 +1,19 @@
+= Petclinic: REST API Documentation
+:toc:
+:toclevels: 3
+:numbered:
+:icons: font
+
+ifndef::apiincludesdir[:apiincludesdir: .]
+
+include::{apiincludesdir}/_authentication.adoc[]
+
+include::{apiincludesdir}/_error-handling.adoc[]
+
+include::{apiincludesdir}/_owners.adoc[]
+
+include::{apiincludesdir}/_veterinarians.adoc[]
+
+include::{apiincludesdir}/_visits.adoc[]
+
+

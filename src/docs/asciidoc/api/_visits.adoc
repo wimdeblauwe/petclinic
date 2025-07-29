@@ -1,0 +1,25 @@
+== Visits
+
+=== Plan a visit for a pet
+
+A visit for a pet can be planned with a veterinarian by issuing the following request:
+
+include::{snippets}/plan-visit/http-request.adoc[]
+
+Example response:
+
+include::{snippets}/plan-visit/http-response.adoc[]
+
+[NOTE]
+====
+It is important that the owner, pet and veterinarian already exist in the system.
+See <<Owners>> and <<Veterinarians>> for more info on how to do that.
+====
+
+Request field descriptions:
+
+include::{snippets}/plan-visit/request-fields.adoc[]
+
+Response field descriptions:
+
+include::{snippets}/plan-visit/response-fields.adoc[]

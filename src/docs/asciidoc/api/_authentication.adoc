@@ -1,0 +1,4 @@
+== Authentication
+
+_This would normally contain all info related to how you authenticate on the API.
+It has not been implemented for this example._

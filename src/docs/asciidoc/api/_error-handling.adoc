@@ -1,0 +1,27 @@
+== Error handling
+
+If there is a problem handling the request in the API, then an error response is returned.
+
+This is an example response:
+
+include::{snippets}/error-example/http-response.adoc[]
+
+Description of the fields:
+
+include::{snippets}/error-example/response-fields.adoc[]
+
+For validation errors, there is additional information that indicates the exact source of the problem.
+
+Given this example request:
+
+include::{snippets}/validation-error-example/http-request.adoc[]
+
+We get this response to indicate that there are validation problems:
+
+include::{snippets}/validation-error-example/http-response.adoc[]
+
+Description of the fields:
+
+include::{snippets}/validation-error-example/response-fields.adoc[]
+
+

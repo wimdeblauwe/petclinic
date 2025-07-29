@@ -1,5 +1,6 @@
 package com.wimdeblauwe.petclinic.veterinarian.web;
 
+import com.wimdeblauwe.petclinic.infrastructure.vo.PersonName;
 import com.wimdeblauwe.petclinic.veterinarian.Speciality;
 import com.wimdeblauwe.petclinic.veterinarian.SpecialityId;
 import com.wimdeblauwe.petclinic.veterinarian.VeterinarianMother;
@@ -73,7 +74,7 @@ class VeterinarianControllerTest {
         Speciality speciality = new Speciality(new SpecialityId(UUID.randomUUID()), "Surgery", LocalDate.of(2020, 1, 1));
         when(registerVeterinarian.execute(any()))
                 .thenReturn(VeterinarianMother.veterinarian()
-                        .name(new com.wimdeblauwe.petclinic.infrastructure.vo.PersonName("John", "Doe"))
+                        .name(new PersonName("John", "Doe"))
                         .withSpeciality(speciality)
                         .build());
 
