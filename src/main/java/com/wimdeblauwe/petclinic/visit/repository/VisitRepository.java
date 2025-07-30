@@ -17,4 +17,6 @@ public interface VisitRepository {
   Visit getById(VisitId id);
 
   Page<Visit> findAll(Pageable pageable);
+
+  void deleteAll();
 }

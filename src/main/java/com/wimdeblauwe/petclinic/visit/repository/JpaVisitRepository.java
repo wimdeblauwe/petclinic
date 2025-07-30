@@ -43,4 +43,9 @@ public class JpaVisitRepository implements VisitRepository {
   public Page<Visit> findAll(Pageable pageable) {
     return repository.findAll(pageable);
   }
+
+  @Override
+  public void deleteAll() {
+    repository.deleteAll();
+  }
 }

@@ -41,4 +41,9 @@ public class InMemoryVisitRepository implements VisitRepository {
         .toList();
     return new PageImpl<>(content, pageable, values.size());
   }
+
+  @Override
+  public void deleteAll() {
+    values.clear();
+  }
 }

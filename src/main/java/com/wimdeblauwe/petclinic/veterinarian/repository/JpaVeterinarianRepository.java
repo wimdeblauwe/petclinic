@@ -57,4 +57,9 @@ class JpaVeterinarianRepository implements VeterinarianRepository {
       throw new VeterinarianNotFoundException(veterinarianId);
     }
   }
+
+  @Override
+  public void deleteAll() {
+    repository.deleteAll();
+  }
 }

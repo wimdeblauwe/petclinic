@@ -1,5 +1,6 @@
 package com.wimdeblauwe.petclinic.infrastructure.test;
 
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
@@ -14,5 +15,6 @@ import java.lang.annotation.Target;
 @Import(TestcontainersConfiguration.class)
 @SpringBootTest
 @AutoConfigureMockMvc
+@ExtendWith(CleanDatabaseExtension.class)
 public @interface PetclinicSpringBootTest {
 }

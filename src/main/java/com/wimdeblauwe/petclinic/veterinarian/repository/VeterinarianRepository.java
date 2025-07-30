@@ -22,4 +22,6 @@ public interface VeterinarianRepository {
   Page<Veterinarian> findAll(Pageable pageable);
 
   void validateExistsById(VeterinarianId veterinarianId);
+
+  void deleteAll();
 }

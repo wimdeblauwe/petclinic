@@ -56,4 +56,9 @@ public class InMemoryVeterinarianRepository implements VeterinarianRepository {
       throw new VeterinarianNotFoundException(veterinarianId);
     }
   }
+
+  @Override
+  public void deleteAll() {
+    values.clear();
+  }
 }

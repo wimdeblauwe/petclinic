@@ -56,4 +56,9 @@ class JpaOwnerRepository implements OwnerRepository {
       throw new OwnerNotFoundException(ownerId);
     }
   }
+
+  @Override
+  public void deleteAll() {
+    repository.deleteAll();
+  }
 }

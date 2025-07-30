@@ -55,4 +55,9 @@ public class InMemoryOwnerRepository implements OwnerRepository {
       throw new OwnerNotFoundException(ownerId);
     }
   }
+
+  @Override
+  public void deleteAll() {
+    values.clear();
+  }
 }
