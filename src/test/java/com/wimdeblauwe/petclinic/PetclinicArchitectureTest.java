@@ -11,8 +11,6 @@ import com.wimdeblauwe.petclinic.infrastructure.stereotype.UseCase;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 import jakarta.transaction.Transactional;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.jackson.JsonComponent;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.bind.annotation.RestController;
