@@ -22,6 +22,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static com.wimdeblauwe.petclinic.owner.OwnerMother.owner;
+import static com.wimdeblauwe.petclinic.owner.PetMother.pet;
+import static com.wimdeblauwe.petclinic.veterinarian.VeterinarianMother.veterinarian;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -40,11 +43,11 @@ class VisitControllerTest {
 
   @Test
   void testPlanVisit_emptyRequest() throws Exception {
-    Pet pet = PetMother.pet().build();
-    Owner owner = OwnerMother.owner()
+    Pet pet = pet().build();
+    Owner owner = owner()
         .withPet(pet)
         .build();
-    Veterinarian veterinarian = VeterinarianMother.veterinarian().build();
+    Veterinarian veterinarian = veterinarian().build();
     ownerRepository.save(owner);
     veterinarianRepository.save(veterinarian);
 
@@ -63,11 +66,11 @@ class VisitControllerTest {
 
   @Test
   void testPlanVisit_missingAppointmentTime() throws Exception {
-    Pet pet = PetMother.pet().build();
-    Owner owner = OwnerMother.owner()
+    Pet pet = pet().build();
+    Owner owner = owner()
         .withPet(pet)
         .build();
-    Veterinarian veterinarian = VeterinarianMother.veterinarian().build();
+    Veterinarian veterinarian = veterinarian().build();
     ownerRepository.save(owner);
     veterinarianRepository.save(veterinarian);
 
@@ -88,11 +91,11 @@ class VisitControllerTest {
 
   @Test
   void testPlanVisit() throws Exception {
-    Pet pet = PetMother.pet().build();
-    Owner owner = OwnerMother.owner()
+    Pet pet = pet().build();
+    Owner owner = owner()
         .withPet(pet)
         .build();
-    Veterinarian veterinarian = VeterinarianMother.veterinarian().build();
+    Veterinarian veterinarian = veterinarian().build();
     ownerRepository.save(owner);
     veterinarianRepository.save(veterinarian);
 

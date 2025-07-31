@@ -18,6 +18,9 @@ import org.springframework.data.domain.PageRequest;
 import java.time.Instant;
 import java.util.UUID;
 
+import static com.wimdeblauwe.petclinic.owner.OwnerMother.owner;
+import static com.wimdeblauwe.petclinic.owner.PetMother.pet;
+import static com.wimdeblauwe.petclinic.veterinarian.VeterinarianMother.veterinarian;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
@@ -40,9 +43,9 @@ class PlanVisitTest {
 
   @Test
   void testExecute() {
-    Veterinarian veterinarian = VeterinarianMother.veterinarian().build();
+    Veterinarian veterinarian = veterinarian().build();
     veterinarianRepository.save(veterinarian);
-    Owner owner = OwnerMother.owner().withPet(PetMother.pet().build()).build();
+    Owner owner = owner().withPet(pet().build()).build();
     ownerRepository.save(owner);
 
     Visit visit = planVisit.execute(new PlanVisitParameters(veterinarian.getId(), owner.getId(), owner.getPets().getFirst().getId(), Instant.now()));
@@ -53,7 +56,7 @@ class PlanVisitTest {
 
   @Test
   void testExecuteWhenVeterinarianIsNotFound() {
-    Owner owner = OwnerMother.owner().withPet(PetMother.pet().build()).build();
+    Owner owner = owner().withPet(pet().build()).build();
     ownerRepository.save(owner);
 
     PlanVisitParameters parameters = new PlanVisitParameters(new VeterinarianId(UUID.randomUUID()), owner.getId(), owner.getPets().getFirst().getId(), Instant.now());

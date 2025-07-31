@@ -19,6 +19,9 @@ import org.springframework.jdbc.core.simple.JdbcClient;
 import java.time.Instant;
 import java.util.UUID;
 
+import static com.wimdeblauwe.petclinic.owner.OwnerMother.owner;
+import static com.wimdeblauwe.petclinic.owner.PetMother.pet;
+import static com.wimdeblauwe.petclinic.veterinarian.VeterinarianMother.veterinarian;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @PetclinicDataJpaTest
@@ -37,15 +40,15 @@ class JpaVisitRepositoryTest {
 
   @Test
   void testSaveVisit() {
-    Pet pet = PetMother.pet()
+    Pet pet = pet()
         .id(ownerRepository.nextPetId())
         .build();
-    Owner owner = OwnerMother.owner()
+    Owner owner = owner()
         .id(ownerRepository.nextId())
         .withPet(pet)
         .build();
     ownerRepository.save(owner);
-    Veterinarian veterinarian = VeterinarianMother.veterinarian()
+    Veterinarian veterinarian = veterinarian()
         .id(veterinarianRepository.nextId())
         .build();
     veterinarianRepository.save(veterinarian);
@@ -64,15 +67,15 @@ class JpaVisitRepositoryTest {
 
   @Test
   void testFindById() {
-    Pet pet = PetMother.pet()
+    Pet pet = pet()
         .id(ownerRepository.nextPetId())
         .build();
-    Owner owner = OwnerMother.owner()
+    Owner owner = owner()
         .id(ownerRepository.nextId())
         .withPet(pet)
         .build();
     ownerRepository.save(owner);
-    Veterinarian veterinarian = VeterinarianMother.veterinarian()
+    Veterinarian veterinarian = veterinarian()
         .id(veterinarianRepository.nextId())
         .build();
     veterinarianRepository.save(veterinarian);

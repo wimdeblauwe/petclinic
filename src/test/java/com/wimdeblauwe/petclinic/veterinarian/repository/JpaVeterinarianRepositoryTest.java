@@ -13,6 +13,7 @@ import java.time.Month;
 import java.util.Collections;
 import java.util.UUID;
 
+import static com.wimdeblauwe.petclinic.veterinarian.VeterinarianMother.veterinarian;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @PetclinicDataJpaTest
@@ -44,7 +45,7 @@ class JpaVeterinarianRepositoryTest {
     VeterinarianId veterinarianId = repository.nextId();
     SpecialityId specialityId = repository.nextSpecialityId();
     Speciality speciality = new Speciality(specialityId, "Dentistry", LocalDate.of(2018, Month.JULY, 13));
-    repository.save(VeterinarianMother.veterinarian()
+    repository.save(veterinarian()
                         .id(veterinarianId)
                         .withSpeciality(speciality)
                         .build());

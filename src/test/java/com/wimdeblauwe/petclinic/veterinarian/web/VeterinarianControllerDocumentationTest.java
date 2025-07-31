@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import static com.wimdeblauwe.petclinic.veterinarian.VeterinarianMother.veterinarian;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
@@ -39,7 +40,7 @@ class VeterinarianControllerDocumentationTest {
   void testRegisterVeterinarian() throws Exception {
     Speciality speciality = new Speciality(new SpecialityId(UUID.randomUUID()), "Surgery", LocalDate.of(2020, 1, 1));
     when(registerVeterinarian.execute(any()))
-        .thenReturn(VeterinarianMother.veterinarian()
+        .thenReturn(veterinarian()
                         .name(new PersonName("John", "Doe"))
                         .withSpeciality(speciality)
                         .build());

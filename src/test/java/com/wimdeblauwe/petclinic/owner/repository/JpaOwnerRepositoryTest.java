@@ -16,6 +16,7 @@ import java.time.Month;
 import java.util.Collections;
 import java.util.UUID;
 
+import static com.wimdeblauwe.petclinic.owner.OwnerMother.owner;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @PetclinicDataJpaTest
@@ -52,7 +53,7 @@ class JpaOwnerRepositoryTest {
     OwnerId ownerId = repository.nextId();
     PetId petId = repository.nextPetId();
     Pet pet = new Pet(petId, "Rufus", LocalDate.of(2022, Month.AUGUST, 7), PetType.DOG, Mass.ofKilograms(7.5));
-    repository.save(OwnerMother.owner()
+    repository.save(owner()
                         .id(ownerId)
                         .withPet(pet)
                         .build());

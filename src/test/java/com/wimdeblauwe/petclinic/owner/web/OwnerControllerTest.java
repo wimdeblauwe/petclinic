@@ -12,6 +12,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static com.wimdeblauwe.petclinic.owner.OwnerMother.owner;
+import static com.wimdeblauwe.petclinic.owner.PetMother.pet;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -29,7 +31,7 @@ class OwnerControllerTest {
   @Test
   void testRegisterOwnerWithPet_emptyRequest() throws Exception {
     when(registerOwnerWithPet.execute(any()))
-        .thenReturn(OwnerMother.owner().build());
+        .thenReturn(owner().build());
 
     mockMvc.perform(post("/api/owners")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -47,7 +49,7 @@ class OwnerControllerTest {
   @Test
   void testRegisterOwnerWithPet_missingTelephone() throws Exception {
     when(registerOwnerWithPet.execute(any()))
-        .thenReturn(OwnerMother.owner().build());
+        .thenReturn(owner().build());
 
     mockMvc.perform(post("/api/owners")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -76,8 +78,8 @@ class OwnerControllerTest {
   @Test
   void testRegisterOwnerWithPet() throws Exception {
     when(registerOwnerWithPet.execute(any()))
-        .thenReturn(OwnerMother.owner()
-                        .withPet(PetMother.pet().build())
+        .thenReturn(owner()
+                        .withPet(pet().build())
                         .build());
 
     mockMvc.perform(post("/api/owners")
