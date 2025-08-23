@@ -6,4 +6,4 @@ It shows how I like to write production-ready Spring Boot applications.
 The principles I use are explained in the following blog posts:
 
 * [How I write production-ready Spring Boot applications](https://www.wimdeblauwe.com/blog/2025/06/24/how-i-write-production-ready-spring-boot-applications/)
-* How I test production-ready Spring Boot applications.
+* [How I test production-ready Spring Boot applications](https://www.wimdeblauwe.com/blog/2025/07/30/how-i-test-production-ready-spring-boot-applications/)
